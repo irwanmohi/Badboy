@@ -37,10 +37,10 @@ cd
 sudo apt-get -y install nginx
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/nginx-default.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/nginx-default.conf"
 mkdir -p /home/vps/public_html
 echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/vhost-nginx.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/vhost-nginx.conf"
 /etc/init.d/nginx restart
 
 # instal nginx php5.6 
@@ -59,10 +59,10 @@ cd
 
 
 # Edit port apache2 ke 8090
-wget -O /etc/apache2/ports.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/apache2.conf"
+wget -O /etc/apache2/ports.conf "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/apache2.conf"
 
 # Edit port virtualhost apache2 ke 8090
-wget -O /etc/apache2/sites-enabled/000-default.conf "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/virtualhost.conf"
+wget -O /etc/apache2/sites-enabled/000-default.conf "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/virtualhost.conf"
 
 # restart apache2
 /etc/init.d/apache2 restart
@@ -79,7 +79,7 @@ mkdir /etc/openvpn/easy-rsa/keys
 
 # Kemudian edit file variabel easy-rsa
 # nano /etc/openvpn/easy-rsa/vars
-wget -O /etc/openvpn/easy-rsa/vars "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/vars.conf"
+wget -O /etc/openvpn/easy-rsa/vars "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/vars.conf"
 # edit projek export KEY_NAME="white-vps"
 # Save dan keluar dari editor
 
@@ -411,11 +411,11 @@ iptables -A POSTROUTING -t nat -j MASQUERADE
 iptables-save > /etc/iptables-opvpn.conf
 
 # Restore iptables
-wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/iptables-local"
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/iptables-local"
 chmod +x /etc/network/if-up.d/iptables
 
 # Restore iptables rc.local
-# wget -O /etc/rc.local "https://raw.githubusercontent.com/whitevps2/sshtunnel/master/debian9/iptables-openvpn"
+# wget -O /etc/rc.local "https://raw.githubusercontent.com/lanundarat87/badboy/main/debian9/iptables-openvpn"
 # chmod +x /etc/rc.local
 
 # restart opevpn
